@@ -83,165 +83,166 @@
 
 <script>
 export default {
-  components: {
-  },
+  components: {},
 };
 </script>
 
 <style lang="scss" scoped>
-@import "~assets/variables.scss";
+  @import "~assets/variables.scss";
 
-.social-links {
-  display: flex;
-  padding: 0;
-  list-style-type: none;
-
-  &__item:not(:first-child) {
-    margin-left: 1rem;
-  }
-}
-
-.featured__items {
-  display: flex;
-  list-style-type: none;
-}
-
-.deals {
-  margin-top: 2rem;
-  &__items {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  &__item {
-    width: 100%;
-    height: 150px;
-    margin-bottom: 1rem;
-    padding: 0 1rem;
-  }
-
-  &__link {
+  .social-links {
     display: flex;
-    flex-direction: column;
-    position: relative;
-    height: 120px;
-    margin: 15px 0;
-    padding: 1rem 1rem 1rem 1rem;
-    background-color: $white;
-
-    &--image-left {
-      padding-left: calc(130px + 1rem);
-    }
-
-    &--image-right {
-      padding-right: calc(130px + 1rem);
-    }
-  }
-
-  &__title {
-    margin-bottom: .5rem;
-    font-size: 1.1875rem;
-    font-weight: 900;
-    line-height: 1.5625rem;
-    max-height: 1.5625rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    word-break: break-all;
-    color: #f36;
-  }
-
-  &__description {
-    max-height: 2.125rem;
-    width: 100%;
-    height: 2.4rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    color: #333;
-    fill: #333;
-    font-size: .8125rem;
-    line-height: 17px;
-  }
-
-  &__image {
-    position: absolute;
-    top: -1rem;
-    width: 150px;
-    height: 150px;
-    background-image: url(https://jetimages.jetcdn.net/videos/cms_images/web_home/deals_deals2_9Sonos.png);
-    background-size: contain;
-
-    &--left {
-      left: -0.375rem;
-    }
-
-    &--right {
-      right: -0.375rem;
-    }
-  }
-}
-
-.slider {
-  height: 520px;
-  overflow: hidden;
-
-  &__slides {
-    display: flex;
-    height: 100%;
-    list-style-type: none;
     padding: 0;
+    list-style-type: none;
+
+    &__item:not(:first-child) {
+      margin-left: 1rem;
+    }
   }
 
-  &__title {
-    font-size: 2.25rem;
-    letter-spacing: -2px;
-    line-height: 1.111;
-    max-height: 3.361em;
-    padding-bottom: .11em;
+  .featured__items {
+    display: flex;
+    list-style-type: none;
+  }
+
+  .deals {
+    margin-top: 2rem;
+
+    &__items {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    &__item {
+      width: 100%;
+      height: 150px;
+      margin-bottom: 1rem;
+      padding: 0 1rem;
+    }
+
+    &__link {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      height: 120px;
+      margin: 15px 0;
+      padding: 1rem 1rem 1rem 1rem;
+      background-color: $white;
+
+      &--image-left {
+        padding-left: calc(130px + 1rem);
+      }
+
+      &--image-right {
+        padding-right: calc(130px + 1rem);
+      }
+    }
+
+    &__title {
+      margin-bottom: .5rem;
+      font-size: 1.1875rem;
+      font-weight: 900;
+      line-height: 1.5625rem;
+      max-height: 1.5625rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-break: break-all;
+      color: #f36;
+    }
+
+    &__description {
+      max-height: 2.125rem;
+      width: 100%;
+      height: 2.4rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #333;
+      fill: #333;
+      font-size: .8125rem;
+      line-height: 17px;
+    }
+
+    &__image {
+      position: absolute;
+      top: -1rem;
+      width: 150px;
+      height: 150px;
+      background-image: url(https://jetimages.jetcdn.net/videos/cms_images/web_home/deals_deals2_9Sonos.png);
+      background-size: contain;
+
+      &--left {
+        left: -0.375rem;
+      }
+
+      &--right {
+        right: -0.375rem;
+      }
+    }
+  }
+
+  .slider {
+    height: 520px;
     overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  &__description {
-    padding: .5rem 1rem;
-    font-size: 1.25rem;
-    background-color: rgba(0,0,0,0.3);
-    color: $white;
-    border: 3px solid $white;
+
+    &__slides {
+      display: flex;
+      height: 100%;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    &__title {
+      font-size: 2.25rem;
+      letter-spacing: -2px;
+      line-height: 1.111;
+      max-height: 3.361em;
+      padding-bottom: .11em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &__description {
+      padding: .5rem 1rem;
+      font-size: 1.25rem;
+      background-color: rgba(0, 0, 0, 0.3);
+      color: $white;
+      border: 3px solid $white;
+    }
+
+    &__slide {
+      // эту хрень делать нужно уже чере компоненты и с всей мозью vue,
+      // а не на голом css(ибо часть свойств очень динамичные должны быть
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background: url(https://jetimages.jetcdn.net/videos/cms_images/web_home/1225_HP_HERO_Allure_dsktp_V2.jpg) no-repeat center center;
+    }
   }
 
-  &__slide {
-    // эту хрень делать нужно уже чере компоненты и с всей мозью vue,
-    // а не на голом css(ибо часть свойств очень динамичные должны быть
+  .customer-banner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background: url(https://jetimages.jetcdn.net/videos/cms_images/web_home/1225_HP_HERO_Allure_dsktp_V2.jpg) no-repeat center center;
-  }
-}
+    padding: .5rem;
+    background-color: rgb(54, 0, 96);
+    color: $white;
 
-.customer-banner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: .5rem;
-  background-color: rgb(54, 0, 96);
-  color: $white;
+    &__items {
+      display: flex;
+      padding: 0;
+      list-style-type: none;
+    }
 
-  &__items {
-    display: flex;
-    padding: 0;
-    list-style-type: none;
-  }
+    &__item:not(:first-child) {
+      margin-left: 5px;
 
-  &__item:not(:first-child) {
-    margin-left: 5px;
-
-    &:before {
-      content: ' | ';
+      &:before {
+        content: ' | ';
+      }
     }
   }
-}
 </style>
