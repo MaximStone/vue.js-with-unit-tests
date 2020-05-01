@@ -7,13 +7,10 @@ const propsData = {
 };
 
 test('Menu item label is correct', async () => {
-  // The render method returns a collection of utilities to query the component.
   const { getByText } = render(MenuItem, {
     props: propsData,
   });
 
-  // getByText returns the first matching node for the provided text, and
-  // throws an error if no elements match or if more than one match is found.
   getByText(menuMock[0].name);
 });
 

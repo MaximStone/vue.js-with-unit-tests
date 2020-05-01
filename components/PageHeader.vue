@@ -25,7 +25,7 @@
         <a href="/"><img src="/logo.png" alt="ГдеМатериал.Ру"></a> <!--TODO(iNerV) do dynamically link-->
       </div>
       <div class="main-navigation__burger">
-        <button class="main-navigation__open-menu-btn">
+        <button class="main-navigation__open-menu-btn" @click="$store.commit('the_menu/TOGGLE_MENU')">
           Menu
         </button>
       </div>
@@ -41,66 +41,25 @@
         </li>
       </ul>
     </nav>
-    <ul class="site-navigation">
-      <li class="site-navigation__item">
-        <a class="site-navigation__link" href="/">Category</a>
-      </li>
-      <li class="site-navigation__item">
-        <a class="site-navigation__link" href="/">Category2</a>
-      </li>
-      <li class="site-navigation__item">
-        <a class="site-navigation__link" href="/">Category3</a>
-      </li>
-      <li class="site-navigation__item">
-        <a class="site-navigation__link" href="/">Category4</a>
-      </li>
-      <li class="site-navigation__item">
-        <a class="site-navigation__link" href="/">Category5</a>
-      </li>
-      <li class="site-navigation__item">
-        <a class="site-navigation__link" href="/">Category6</a>
-      </li>
-      <li class="site-navigation__item">
-        <a class="site-navigation__link" href="/">Category7</a>
-      </li>
-      <li class="site-navigation__item">
-        <a class="site-navigation__link" href="/">Category8</a>
-      </li>
-      <li class="site-navigation__item">
-        <a class="site-navigation__link" href="/">Category9</a>
-      </li>
-      <li class="site-navigation__item">
-        <a class="site-navigation__link" href="/">Category10</a>
-      </li>
-      <li class="site-navigation__item">
-        <a class="site-navigation__link" href="/">Category11</a>
-      </li>
-      <li class="site-navigation__item">
-        <a class="site-navigation__link" href="/">Category12</a>
-      </li>
-      <li class="site-navigation__item">
-        <a class="site-navigation__link" href="/">Category13</a>
-      </li>
-      <li class="site-navigation__item">
-        <a class="site-navigation__link" href="/">Category14</a>
-      </li>
-      <li class="site-navigation__item">
-        <a class="site-navigation__link" href="/">Category15</a>
-      </li>
-      <li class="site-navigation__item">
-        <a class="site-navigation__link" href="/">Category16</a>
-      </li>
-    </ul>
+    <MainMenu v-show="menuVisible" />
   </header>
 </template>
 
 <script>
+import MainMenu from './MainMenu';
+
 export default {
   name: 'PageHeader',
+  components: { MainMenu },
+  computed: {
+    menuVisible() {
+      return this.$store.state.the_menu.menu_is_visible;
+    },
+  },
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "~assets/variables.scss";
 
 .top-bar {
@@ -212,7 +171,6 @@ export default {
 }
 
 .site-navigation {
-  display: flex;
   flex-direction: column;
   grid-area: site-navigation;
   list-style-type: none;
@@ -222,7 +180,11 @@ export default {
   overflow-y: scroll;
   z-index: 1;
   padding-left: 0;
-  display: none;
+  display: flex;
+
+  @media screen and (min-width: 768px) {
+    max-width: 350px;
+  }
 
   &__item {
     display: block;
